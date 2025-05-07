@@ -86,13 +86,13 @@ Make sure you have Gradle 3.2 (or later) installed.
 
 1. Source your ROS 2 installation, for example:
 
-        source /opt/ros/galactic/setup.bash
+        source /opt/ros/humble/setup.bash
 
 1. Download the ROS 2 Java repositories into a workspace:
 
         mkdir -p ros2_java_ws/src
         cd ros2_java_ws
-        curl -skL https://raw.githubusercontent.com/ros2-java/ros2_java/main/ros2_java_desktop.repos | vcs import src
+        curl -skL https://raw.githubusercontent.com/kazu-321/ros2_java/main/ros2_java_desktop.repos | vcs import src
 
 1. **Linux only** Install ROS dependencies:
 
