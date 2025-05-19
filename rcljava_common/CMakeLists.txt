@@ -30,7 +30,7 @@ if(NOT WIN32)
   add_compile_options(-Wall -Wextra -Wpedantic)
 endif()
 
-set(CMAKE_JAVA_COMPILE_FLAGS "-source" "1.6" "-target" "1.6")
+set(CMAKE_JAVA_COMPILE_FLAGS "-source" "8" "-target" "8")
 
 set(${PROJECT_NAME}_java_sources
   "src/main/java/org/ros2/rcljava/common/JNIUtils.java"
