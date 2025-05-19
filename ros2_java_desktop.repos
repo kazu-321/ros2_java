@@ -31,3 +31,7 @@ repositories:
     type: git
     url: https://github.com/ros2-java/ros2_java_examples.git
     version: main
+  ros2/octomap:
+    type: git
+    url: https://github.com/Taeyoung96/OctoMap-ROS2.git
+    version: master
