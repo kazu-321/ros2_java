@@ -59,19 +59,6 @@ Make sure you have Gradle 3.2 (or later) installed.
 
         sudo apt install gradle
 
-    *macOS*
-
-        brew install gradle
-
-    Note: if run into compatibily issues between gradle 3.x and Java 9, try using Java 8,
-
-        brew tap caskroom/versions
-        brew cask install java8
-        export JAVA_HOME=/Library/Java/JavaVirtualMachines/1.8.0.jdk/Contents/Home
-
-    *Windows*
-
-        choco install gradle
 
 1. Install build tools:
 
@@ -100,65 +87,8 @@ Make sure you have Gradle 3.2 (or later) installed.
 
 1. Build desktop packages:
 
-        colcon build --symlink-install
-
-    *Note, on Windows we have to use `--merge-install`*
-
-        colcon build --merge-install
-
-
-### Download and Build ROS 2 Java for Android
-
-The Android setup is slightly more complex, you'll need the SDK and NDK installed, and an Android device where you can run the examples.
-
-Make sure to download at least the SDK for Android Lollipop (or greater), the examples require the API level 21 at least and NDK 14.
-
-You may download the Android NDK from [the official](https://developer.android.com/ndk/downloads/index.html) website, let's assume you've downloaded 16b (the latest stable version as of 2018-04-28) and you unpack it to `~/android_ndk`
-
-We'll also need to have the [Android SDK](https://developer.android.com/studio/#downloads) installed, for example, in `~/android_sdk` and set the `ANDROID_HOME` environment variable pointing to it.
-
-Although the `ros2_java_android.repos` file contains all the repositories for the Android bindings to compile, we'll have to disable certain packages (`python_cmake_module`, `rosidl_generator_py`, `test_msgs`) that are included the repositories and that we either don't need or can't cross-compile properly (e.g. the Python generator)
-
-1. Download the [Android NDK](https://developer.android.com/ndk/downloads/index.html) and set the environment variable `ANDROID_NDK` to the path where it is extracted.
-
-1. Download the [Android SDK](https://developer.android.com/studio/#downloads) and set the environment variable `ANDROID_HOME` to the path where it is extracted.
-
-1. Clone ROS 2 and ROS 2 Java source code:
-
-        mkdir -p $HOME/ros2_android_ws/src
-        cd $HOME/ros2_android_ws
-        curl https://raw.githubusercontent.com/ros2-java/ros2_java/main/ros2_java_android.repos | vcs import src
-
-1. Set Android build configuration:
-
-        export PYTHON3_EXEC="$( which python3 )"
-        export PYTHON3_LIBRARY="$( ${PYTHON3_EXEC} -c 'import os.path; from distutils import sysconfig; print(os.path.realpath(os.path.join(sysconfig.get_config_var("LIBPL"), sysconfig.get_config_var("LDLIBRARY"))))' )"
-        export PYTHON3_INCLUDE_DIR="$( ${PYTHON3_EXEC} -c 'from distutils import sysconfig; print(sysconfig.get_config_var("INCLUDEPY"))' )"
-        export ANDROID_ABI=armeabi-v7a
-        export ANDROID_NATIVE_API_LEVEL=android-21
-        export ANDROID_TOOLCHAIN_NAME=arm-linux-androideabi-clang
-
-1. Build (skipping packages that we don't need or can't cross-compile):
-
-        colcon build \
-          --packages-ignore cyclonedds rcl_logging_log4cxx rosidl_generator_py \
-          --packages-up-to rcljava \
-          --cmake-args \
-          -DPYTHON_EXECUTABLE=${PYTHON3_EXEC} \
-          -DPYTHON_LIBRARY=${PYTHON3_LIBRARY} \
-          -DPYTHON_INCLUDE_DIR=${PYTHON3_INCLUDE_DIR} \
-          -DCMAKE_TOOLCHAIN_FILE=${ANDROID_NDK}/build/cmake/android.toolchain.cmake \
-          -DANDROID_FUNCTION_LEVEL_LINKING=OFF \
-          -DANDROID_NATIVE_API_LEVEL=${ANDROID_NATIVE_API_LEVEL} \
-          -DANDROID_TOOLCHAIN_NAME=${ANDROID_TOOLCHAIN_NAME} \
-          -DANDROID_STL=c++_shared \
-          -DANDROID_ABI=${ANDROID_ABI} \
-          -DANDROID_NDK=${ANDROID_NDK} \
-          -DTHIRDPARTY=ON \
-          -DCOMPILE_EXAMPLES=OFF \
-          -DCMAKE_FIND_ROOT_PATH="${PWD}/install"
-
-You can find more information about the Android examples at https://github.com/ros2-java/ros2_android_examples
+        colcon build
+   *Note, Do not use symlink-install*
 
 ## Contributing
 
