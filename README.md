@@ -1,4 +1,5 @@
 # ROS 2 Java client library
+[![build docker image](https://github.com/kazu-321/ros2_java/actions/workflows/docker_build.yaml/badge.svg)](https://github.com/kazu-321/ros2_java/actions/workflows/docker_build.yaml)
 
 ## Introduction
 
