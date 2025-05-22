@@ -1,11 +1,5 @@
 # ROS 2 Java client library
 
-### Build status
-
-| Target                                    | Status        |
-|-------------------------------------------|---------------|
-| **ROS Galactic - Ubuntu Focal (OpenJDK)** | ![Build Status](https://github.com/ros2-java/ros2_java/workflows/CI/badge.svg?branch=main) |
-
 ## Introduction
 
 This is a set of projects (bindings, code generator, examples and more) that enables developers to write ROS 2
