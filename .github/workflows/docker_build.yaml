@@ -37,7 +37,7 @@ jobs:
           context: .
           push: true
           tags: |
-            ghcr.io/kazu-321/ros2_java:latest
+            ghcr.io/minecraft-ros2/ros2_java:latest
           labels: |
             org.opencontainers.image.title=ros2_java
             org.opencontainers.image.source=https://github.com/${ github.repository }
