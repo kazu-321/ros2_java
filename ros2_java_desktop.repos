@@ -31,3 +31,7 @@ repositories:
     type: git
     url: https://github.com/ros2/geometry2.git
     version: humble
+  ros-simulation/simulation_interfaces:
+    type: git
+    url: https://github.com/ros-simulation/simulation_interfaces.git
+    version: main
