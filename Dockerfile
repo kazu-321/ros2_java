@@ -31,6 +31,7 @@ RUN apt-get update \
 ENV ROS2JAVA_INSTALL_PATH=/ws/ros2_java_ws/install
 
 RUN source /opt/ros/humble/setup.bash  && \
-    colcon build
+    colcon build &&\
+    rm -rf build log
 
 CMD ["bash"]
