@@ -74,7 +74,7 @@ Make sure you have Gradle 3.2 (or later) installed.
 
         mkdir -p ros2_java_ws/src
         cd ros2_java_ws
-        curl -skL https://raw.githubusercontent.com/kazu-321/ros2_java/main/ros2_java_desktop.repos | vcs import src
+        curl -skL https://raw.githubusercontent.com/minecraft-ros2/ros2_java/main/ros2_java_desktop.repos | vcs import src
 
 1. **Linux only** Install ROS dependencies:
 
