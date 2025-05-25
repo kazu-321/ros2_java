@@ -35,3 +35,7 @@ repositories:
     type: git
     url: https://github.com/ros-simulation/simulation_interfaces.git
     version: main
+  minecraft-ros2/minecraft_msgs:
+    type: git
+    url: https://github.com/minecraft-ros2/minecraft_msgs.git
+    version: humble
